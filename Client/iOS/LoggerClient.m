@@ -2719,7 +2719,7 @@ static void LogMessageTo_internal(Logger *logger,
             if (functionName != NULL)
                 LoggerMessageAddCString(encoder, functionName, PART_KEY_FUNCTIONNAME);
 
-            NSString *msgString = [[NSString alloc] initWithFormat:format arguments:args];
+            NSString *msgString = [[NSString alloc] initWithFormat:[NSString stringWithFormat:@"%@", format] arguments:args];
             if (msgString != nil)
             {
                 LoggerMessageAddString(encoder, (CFStringRef)msgString, PART_KEY_MESSAGE);
